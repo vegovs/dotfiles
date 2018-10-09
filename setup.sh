@@ -1,6 +1,4 @@
-# dotfiles directory
 DIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
-
 
 # Linux
 echo -ne '##                    (10%)\r'

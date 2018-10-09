@@ -6,7 +6,19 @@ Some config files for:
 * bash
 * tmux
 
-setup.sh installs needed software, creates symlinks for config files and updates plugins.
+setup.sh:
+* Installs: 
+	* Vim
+	* Tmux 
+	* Vundle 
+* Symlinks:
+	* .bashrc 
+	* .gitconfig 
+	* .vimrc 
+	* .tmux.config
+	* .gitignore_global  
+* Configures:
+	* Git global .gitignore
 
 ## Usage
 ```
