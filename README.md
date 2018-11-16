@@ -8,6 +8,7 @@ Some config files for:
 
 setup.sh:
 * Installs: 
+	* Pandoc
 	* Vim
 	* Tmux 
 	* Vundle 
@@ -17,6 +18,9 @@ setup.sh:
 	* .vimrc 
 	* .tmux.config
 	* .gitignore_global  
+	* OneDrive
+	* GoogleDrive
+	* Dropbox
 * Configures:
 	* Git global .gitignore
 
