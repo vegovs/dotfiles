@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 spin()
 {
@@ -35,28 +35,40 @@ sudo apt -y install pandoc
 if type -p pip > /dev/null; then
     echo "pandoc Installed" >> $log_file
 else
-    echo "pandoc FAILED TO INSTALL!!!" >> $log_file
+    echo "Error: pandoc failed to install" >> $log_file
 fi
 
 sudo apt -y install python-pip
 if type -p pip > /dev/null; then
     echo "pip Installed" >> $log_file
 else
-    echo "pip FAILED TO INSTALL!!!" >> $log_file
+    echo "Error: pip failed to install" >> $log_file
 fi
 
 sudo apt -y install vim 
 if type -p vim > /dev/null; then
     echo "Vim Installed" >> $log_file
 else
-    echo "Vim FAILED TO INSTALL!!!" >> $log_file
+    echo "Error: Vim failed to install" >> $log_file
+fi
+
+echo 'Install/Updating vim-plugins, this might take a while..'
+
+vundlepath="~/.vim/bundle/Vundle.vim/"
+if [ -d $vundlepath ]; then
+	echo "Vundle Installed." >> $log_file
+	vim +PluginUpdate +qall &>/dev/null
+else
+	echo "Vundle Installed." >> $log_file
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim &>/dev/null 
+	vim +PluginInstall +qall &>/dev/null
 fi
 
 sudo apt -y install tmux 
 if type -p tmux > /dev/null; then
     echo "tmux Installed" >> $log_file
 else
-    echo "tmux FAILED TO INSTALL!!!" >> $log_file
+    echo "Error: tmux failed to install" >> $log_file
 fi
 
 #==============
@@ -65,15 +77,6 @@ fi
 # Delete existing dot files and folders
 #==============
 echo "Creating symlinks.."
-sudo rm -rf ~/.vim > /dev/null 2>&1
-sudo rm -rf ~/.vimrc > /dev/null 2>&1
-sudo rm -rf ~/.bashrc > /dev/null 2>&1
-sudo rm -rf ~/.tmux > /dev/null 2>&1
-sudo rm -rf ~/.tmux.conf > /dev/null 2>&1
-sudo rm -rf ~/.gitconfig > /dev/null 2>&1
-sudo rm -rf ~/OneDrive > /dev/null 2>&1
-sudo rm -rf ~/GoogleDrive > /dev/null 2>&1
-sudo rm -rf ~/Dropbox > /dev/null 2>&1
 
 #==============
 # Create symlinks in the home folder
@@ -132,16 +135,6 @@ ln -sfn $DIR/.gitconfig ~/ &>/dev/null
 ln -sfn $DIR/.tmux.conf ~/ &>/dev/null
 ln -sfn $DIR/.gitignore_global ~/ &>/dev/null
 git config --global core.excludesfile ~/.gitignore_global &>/dev/null
-
-echo 'Install/Updating vim-plugins, this might take a while..'
-
-vundlepath=~/.vim/bundle/Vundle.vim
-if [ -d $vundlepath ]; then
-	vim +PluginUpdate +qall &>/dev/null
-else
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim &>/dev/null
-	vim +PluginInstall +qall &>/dev/null
-fi
 
 echo -e "\n====== Summary ======\n"
 cat $log_file
