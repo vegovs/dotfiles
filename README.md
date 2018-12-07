@@ -26,5 +26,5 @@ setup.sh:
 
 ## Usage
 ```
-git clone https://github.com/vegovs/dotfiles.git && cd dotfiles && sudo bash setup.sh
+git clone https://github.com/vegovs/dotfiles.git && cd dotfiles && bash setup.sh
 ```
