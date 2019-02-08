@@ -5,6 +5,7 @@
 
 [core]
     editor = vim 
+	excludesfile = /home/vegovs/.gitignore_global
 
 [web]
 	browser = google-chrome
@@ -13,7 +14,7 @@
     ui = true
 [color "branch"]
     current = yellow reverse
-    local = yello
+    local = yellow
     remote = green
 [color "diff"]
     meta = yellow bold

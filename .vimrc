@@ -38,7 +38,6 @@ call vundle#begin() 				"WINDOWS: call vundle#begin('$HOME/vimfiles/bundle/')
  Plugin 'easymotion/vim-easymotion'
  Plugin 'AutoComplPop'
  Plugin 'majutsushi/tagbar'
- Plugin 'townk/vim-autoclose'
 
 call vundle#end()
 "VUNDLE END"
