@@ -41,24 +41,11 @@ call vundle#begin() 				"WINDOWS: call vundle#begin('$HOME/vimfiles/bundle/')
  Plugin 'majutsushi/tagbar'
  Plugin 'vim-scripts/indentpython.vim'
  Plugin 'jnurmine/Zenburn'
- Plugin 'altercation/vim-colors-solarized'
  Plugin 'jistr/vim-nerdtree-tabs'
-
 
 
 call vundle#end()
 "VUNDLE END"
-
-syntax enable
-set background=dark
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-else
-  colorscheme zenburn
-endif
-call togglebg#map("<F5>")
-
 
 "INDENTATIONS
 au BufNewFile,BufRead *.py
@@ -156,7 +143,6 @@ set conceallevel=2
 let g:ctrlp_working_path_mode = 'c'
 
 "AIRLINE"
-set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
