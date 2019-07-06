@@ -1,5 +1,6 @@
 syntax enable 					"Turns on syntax highliging
 
+set encoding=utf-8
 set nocompatible 				"sRequired by Vundle
 set autoindent 					"Autoindent
 set smartindent
@@ -26,7 +27,7 @@ call vundle#begin() 				"WINDOWS: call vundle#begin('$HOME/vimfiles/bundle/')
  Plugin 'kien/ctrlp.vim'
  Plugin 'tpope/vim-fugitive'
  Plugin 'tpope/vim-surround'
- Plugin 'bling/vim-airline'
+ Plugin 'vim-airline/vim-airline'
  Plugin 'vim-airline/vim-airline-themes'
  Plugin 'ervandew/supertab'
  Plugin 'scrooloose/nerdcommenter'
@@ -38,12 +39,47 @@ call vundle#begin() 				"WINDOWS: call vundle#begin('$HOME/vimfiles/bundle/')
  Plugin 'easymotion/vim-easymotion'
  Plugin 'AutoComplPop'
  Plugin 'majutsushi/tagbar'
+ Plugin 'vim-scripts/indentpython.vim'
+ Plugin 'jnurmine/Zenburn'
+ Plugin 'altercation/vim-colors-solarized'
+ Plugin 'jistr/vim-nerdtree-tabs'
+
+
 
 call vundle#end()
 "VUNDLE END"
 
 syntax enable
 set background=dark
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme zenburn
+endif
+call togglebg#map("<F5>")
+
+
+"INDENTATIONS
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+"PYTHON"
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+let python_highlight_all=1
+syntax on
 
 "VHDL CONFIG
 autocmd Filetype vhdl set expandtab|set shiftwidth=2|set tabstop=2
@@ -51,26 +87,26 @@ autocmd Filetype vhdl set expandtab|set shiftwidth=2|set tabstop=2
 "LEADER KEY"
 let mapleader = ","
 
-"BUFFER NAV
+"BUFFER NAV"
 :nmap <F1> :bp<CR>
 :nmap <F2> :bn<CR>
 :nmap <F3> :lprev<CR>
 :nmap <F4> :lnext<CR>
 
-"ENCODING
+"ENCODING"
 set encoding=utf-8
 set fileencoding=utf-8
 
-"TAGBAR 
+"TAGBAR"
 nmap <F8> :TagbarToggle<CR>
 
-"AUTO-COMPLETE
+"AUTO-COMPLETE"
 autocmd Filetype plaintex,tex,latex,markdown,md,mdown set dictionary+=/usr/share/dict/words
 set complete+=k
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-"MACROS
+"MACROS"
 :nnoremap <Space> @q
 let @q=']s'
 let @z='1z='
@@ -98,32 +134,31 @@ iabbr #d #define
 iabbr #i #include <><left><C-R>=Eatchar()<cr>
 iabbr prf printf("\n");<esc>4hi<C-R>=Eatchar()<cr>
 
-"SUPERTAB
+"SUPERTAB"
 let g:SuperTabDefaultCompletionType = "context"
 
-"VIMTEX
+"VIMTEX"
 let g:vimtex_disable_version_warning = 1
 
-"VIMWIKI
+"VIMWIKI"
 let g:vimwiki_list = [{'path' : '/home/vegarbov/Dropbox/VimWiki',
 \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 let g:vimwiki_global_ext = 0
 
-"VIM-MARKDOWN
+"VIM-MARKDOWN"
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_toml_frontmatter = 1
 set conceallevel=2
 
-"CTRLP
+"CTRLP"
 let g:ctrlp_working_path_mode = 'c'
 
-"AIRLINE
+"AIRLINE"
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '>'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 "FILE SPESIFIC"
 let java_highlight_all=1
@@ -144,6 +179,9 @@ let g:syntastic_check_on_wq = 0
 "SPELL CHECKING"
 nmap <silent> <leader>s :set spell!<CR>
 set spelllang=nb,en
+
+"NERD TREE"
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 "NERDCOMMENTER"
 let g:NERDSpaceDelims = 1

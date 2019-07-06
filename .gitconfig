@@ -5,7 +5,7 @@
 
 [core]
     editor = vim 
-	excludesfile = /home/vegovs/.gitignore_global
+	excludesfile = /home/coop/.gitignore_global
 
 [web]
 	browser = google-chrome
