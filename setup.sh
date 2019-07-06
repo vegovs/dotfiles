@@ -31,20 +31,6 @@ DIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 #==============
 echo "Installing packages.."
 
-sudo apt -y install pandoc
-if type -p pip > /dev/null; then
-    echo "pandoc Installed" >> $log_file
-else
-    echo "Error: pandoc failed to install" >> $log_file
-fi
-
-sudo apt -y install python-pip
-if type -p pip > /dev/null; then
-    echo "pip Installed" >> $log_file
-else
-    echo "Error: pip failed to install" >> $log_file
-fi
-
 sudo apt -y install vim 
 if type -p vim > /dev/null; then
     echo "Vim Installed" >> $log_file
@@ -97,6 +83,7 @@ if [[ ! -e $LocalDropbox ]]; then
 		echo "Error: Could not link Dropbox." >> $log_file
     fi
 fi
+
 # GoogleDrive
 get_username=$(powershell.exe '$env:UserName') 
 username=${get_username//$'\r'/}

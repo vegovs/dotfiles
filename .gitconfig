@@ -5,7 +5,7 @@
 
 [core]
     editor = vim 
-	excludesfile = /home/coop/.gitignore_global
+	excludesfile = /home/pi/.gitignore_global
 
 [web]
 	browser = google-chrome

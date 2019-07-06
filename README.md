@@ -8,10 +8,9 @@ Some config files for:
 
 setup.sh:
 * Installs: 
-	* Pandoc
 	* Vim
+		* Vundle 
 	* Tmux 
-	* Vundle 
 * Symlinks:
 	* .bashrc 
 	* .gitconfig 
@@ -26,5 +25,7 @@ setup.sh:
 
 ## Usage
 ```
-git clone https://github.com/vegovs/dotfiles.git && cd dotfiles && bash setup.sh
+git clone https://github.com/vegovs/dotfiles.Git
+cd dotfiles
+bash setup.sh
 ```
