@@ -98,6 +98,20 @@ else
     echo "Google Chrome FAILED TO INSTALL!!!" >> $log_file
 fi
 
+sudo apt-get -y install slack-term
+if type -p google-chrome-stable > /dev/null; then
+    echo "slack-term Installed" >> $log_file
+else
+    echo "slack-term FAILED TO INSTALL!!!" >> $log_file
+fi
+
+sudo npm install -g fb-messenger-cli
+if type -p fb-messenger-cli > /dev/null; then
+    echo "fb-messenger-cli Installed" >> $log_file
+else
+    echo "fb-messenger-cli FAILED TO INSTALL!!!" >> $log_file
+fi
+
 echo -e "\n====== Summary ======\n"
 cat $log_file
 echo
