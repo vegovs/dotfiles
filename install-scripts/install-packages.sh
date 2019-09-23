@@ -99,8 +99,8 @@ else
     echo "Google Chrome FAILED TO INSTALL!!!" >> $log_file
 fi
 
-sudo apt-get -y install slack-term
-if type -p google-chrome-stable > /dev/null; then
+sudo snap install slack-term
+if type -p slack-term > /dev/null; then
     echo "slack-term Installed" >> $log_file
 else
     echo "slack-term FAILED TO INSTALL!!!" >> $log_file
