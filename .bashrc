@@ -91,13 +91,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias web='cd ~/Dropbox/vegovs.github.io/'
-alias wiki='cd ~/Dropbox/VimWiki/'
-alias school='cd /mnt/c/Users/vegov/Google\ Drive/School/'
-alias cdgd='cd /mnt/c/Users/vegov/Google\ Drive/'
-alias servesite='cd ~/Dropbox/vegovs.github.io/ && jekyll serve'
 alias sshuio='ssh -YC vegarbov@login.ifi.uio.no'
-alias sshpi='ssh pi@192.168.1.44'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

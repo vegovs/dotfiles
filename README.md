@@ -6,26 +6,16 @@ Some config files for:
 * bash
 * tmux
 
-setup.sh:
-* Installs: 
-	* Vim
-		* Vundle 
-	* Tmux 
-* Symlinks:
-	* .bashrc 
-	* .gitconfig 
-	* .vimrc 
-	* .tmux.config
-	* .gitignore_global  
-	* OneDrive
-	* GoogleDrive
-	* Dropbox
-* Configures:
-	* Git global .gitignore
+Also installs a bunch of packages.
 
-## Usage
+## Install 
+Create symbolic links for the dotfiles:
 ```
-git clone https://github.com/vegovs/dotfiles.Git
+git clone https://github.com/vegovs/dotfiles.git
 cd dotfiles
-bash setup.sh
+bash create_symlinks.sh
+```
+Installs packages:
+```
+bash install_packages.sh
 ```
