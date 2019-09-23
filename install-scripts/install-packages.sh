@@ -69,6 +69,7 @@ if type -p pandoc > /dev/null; then
     echo "pandoc Installed" >> $log_file
 else
     echo "Error: pandoc failed to install" >> $log_file
+fi
 
 sudo apt -y install iftop 
 if type -p iftop > /dev/null; then
