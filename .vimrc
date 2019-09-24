@@ -42,10 +42,18 @@ call vundle#begin() 				"WINDOWS: call vundle#begin('$HOME/vimfiles/bundle/')
  Plugin 'vim-scripts/indentpython.vim'
  Plugin 'jnurmine/Zenburn'
  Plugin 'jistr/vim-nerdtree-tabs'
+ Plugin 'tmhedberg/SimpylFold'
+ Bundle 'Valloric/YouCompleteMe'
+ Plugin 'nvie/vim-flake8'
 
 
 call vundle#end()
 "VUNDLE END"
+
+let g:SimpylFold_docstring_preview=1
+
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "INDENTATIONS
 au BufNewFile,BufRead *.py
@@ -143,6 +151,7 @@ set conceallevel=2
 let g:ctrlp_working_path_mode = 'c'
 
 "AIRLINE"
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 

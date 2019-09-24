@@ -24,7 +24,6 @@ trap "kill -9 $SPIN_PID" `seq 0 15`
 # Variables
 #==============
 log_file=~/install_progress_log.txt
-DIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 
 #==============
 # Install packages

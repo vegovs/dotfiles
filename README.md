@@ -12,7 +12,7 @@ Also installs a bunch of packages.
 Create symbolic links for the dotfiles:
 ```
 git clone https://github.com/vegovs/dotfiles.git
-cd dotfiles
+cd install-scripts
 bash create_symlinks.sh
 ```
 Installs packages:
