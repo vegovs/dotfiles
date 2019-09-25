@@ -112,6 +112,14 @@ else
     echo "fb-messenger-cli FAILED TO INSTALL!!!" >> $log_file
 fi
 
+sudo apt -y install dconf-tools
+if type -p dconf-tools > /dev/null; then
+    echo "dconf-tools Installed" >> $log_file
+	sudo dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:caps:swapescape']"
+else
+    echo "dconf-tools FAILED TO INSTALL!!!" >> $log_file
+fi
+
 echo -e "\n====== Summary ======\n"
 cat $log_file
 echo

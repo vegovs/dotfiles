@@ -6,7 +6,7 @@ Some config files for:
 * bash
 * tmux
 
-Also installs a bunch of packages.
+Also installs a bunch of packages and tries to swap caps<->escape.
 
 ## Install 
 Create symbolic links for the dotfiles:
