@@ -1,25 +1,44 @@
-syntax enable 					"Turns on syntax highliging
+"VIM
 
+set hidden
+set wildmenu
+set showcmd
 set encoding=utf-8
-set nocompatible 				"sRequired by Vundle
-set autoindent 					"Autoindent
+set ignorecase
+set smartcase
+set ruler
+set backspace=indent,eol,start
+set nocompatible
+set autoindent
+set nostartofline
 set smartindent
-set tabstop=4 					"Tab is 4 spaces
-set shiftwidth=4 				"Indenting is 4 spaces
-set path+=$PWD/** 				"Sets pathvariable to current dir and all sub dirs
-set relativenumber 				"Sets relativenumber
-set number 						"Shows linenumber
-set sm 							"Automatic matching braces
-set hlsearch 					"Search hightlighting
+set tabstop=4
+set shiftwidth=4
+set path+=$PWD/**
+set relativenumber
+set number
+set sm
+set hlsearch
 set formatoptions+=r
+set laststatus=2
+set confirm
+set visualbell
+set mouse=a
+set cmdheight=2
+set notimeout ttimeout ttimeoutlen=200
+set pastetoggle=<F11>
+set shiftwidth=4
+set softtabstop=4
+set expandtab
 
-filetype off 					"Required by Vundle
+syntax enable
+filetype off
 filetype plugin on
 
 "VUNDLE"
 
-set rtp+=~/.vim/bundle/Vundle.vim/ 	"WINDOWS: set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
-call vundle#begin() 				"WINDOWS: call vundle#begin('$HOME/vimfiles/bundle/')
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
  Plugin 'gmarik/Vundle.vim'
  Plugin 'scrooloose/syntastic'
