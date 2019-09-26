@@ -43,8 +43,9 @@ call vundle#begin() 				"WINDOWS: call vundle#begin('$HOME/vimfiles/bundle/')
  Plugin 'jnurmine/Zenburn'
  Plugin 'jistr/vim-nerdtree-tabs'
  Plugin 'tmhedberg/SimpylFold'
- Bundle 'Valloric/YouCompleteMe'
  Plugin 'nvie/vim-flake8'
+ Plugin 'davidhalter/jedi-vim'
+
 
 
 call vundle#end()
@@ -56,7 +57,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "INDENTATIONS
-au BufNewFile,BufRead *.py
+au BufNewFile, BufRead *.py
     \ set tabstop=4
     \ set softtabstop=4
     \ set shiftwidth=4
@@ -71,8 +72,6 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set shiftwidth=2
 
 "PYTHON"
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
 let python_highlight_all=1
 syntax on
 
