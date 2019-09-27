@@ -30,10 +30,13 @@ set pastetoggle=<F11>
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+set termguicolors
 
 syntax enable
 filetype off
 filetype plugin on
+colorscheme solarized
+set bg=dark 
 
 "INDENTATIONS
 au BufNewFile, BufRead *.py
@@ -125,6 +128,8 @@ Plugin 'davidhalter/jedi-vim'
 
 "COLOR SCHEMES
 Plugin 'jnurmine/Zenburn'
+Plugin 'morhetz/gruvbox'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 "VUNDLE END
