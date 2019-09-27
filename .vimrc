@@ -35,46 +35,6 @@ syntax enable
 filetype off
 filetype plugin on
 
-"VUNDLE"
-
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
- Plugin 'gmarik/Vundle.vim'
- Plugin 'scrooloose/syntastic'
- Plugin 'scrooloose/nerdtree'
- Plugin 'kien/ctrlp.vim'
- Plugin 'tpope/vim-fugitive'
- Plugin 'tpope/vim-surround'
- Plugin 'vim-airline/vim-airline'
- Plugin 'vim-airline/vim-airline-themes'
- Plugin 'ervandew/supertab'
- Plugin 'scrooloose/nerdcommenter'
- Plugin 'vimwiki/vimwiki'
- Plugin 'lervag/vimtex'
- Plugin 'plasticboy/vim-markdown'
- Plugin 'godlygeek/tabular'
- Plugin 'tpope/vim-repeat'
- Plugin 'easymotion/vim-easymotion'
- Plugin 'AutoComplPop'
- Plugin 'majutsushi/tagbar'
- Plugin 'vim-scripts/indentpython.vim'
- Plugin 'jnurmine/Zenburn'
- Plugin 'jistr/vim-nerdtree-tabs'
- Plugin 'tmhedberg/SimpylFold'
- Plugin 'nvie/vim-flake8'
- Plugin 'davidhalter/jedi-vim'
-
-
-
-call vundle#end()
-"VUNDLE END"
-
-let g:SimpylFold_docstring_preview=1
-
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 "INDENTATIONS
 au BufNewFile, BufRead *.py
     \ set tabstop=4
@@ -90,12 +50,13 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set softtabstop=2
     \ set shiftwidth=2
 
-"PYTHON"
+"FILE SPESIFIC"
 let python_highlight_all=1
-syntax on
-
-"VHDL CONFIG
+let java_highlight_all=1
+let java_highlight_functions="style"
+let java_allow_cpp_keywords=1
 autocmd Filetype vhdl set expandtab|set shiftwidth=2|set tabstop=2
+filetype plugin indent on
 
 "LEADER KEY"
 let mapleader = ","
@@ -106,12 +67,70 @@ let mapleader = ","
 :nmap <F3> :lprev<CR>
 :nmap <F4> :lnext<CR>
 
+"MACROS"
+:nnoremap <Space> @q
+let @q=']s'
+let @z='1z='
+
 "ENCODING"
 set encoding=utf-8
 set fileencoding=utf-8
 
-"TAGBAR"
-nmap <F8> :TagbarToggle<CR>
+"VUNDLE
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+
+"PLUGINS
+"Vundle - Plugin manager
+Plugin 'gmarik/Vundle.vim'
+"Syntastic - Syntax checking plugin
+Plugin 'scrooloose/syntastic'
+"Nerdtree - File navigation plugin
+Plugin 'scrooloose/nerdtree'
+"CtrlP - Full path fuzzy file, buffer, mru, tag, ... finder for Vim
+Plugin 'kien/ctrlp.vim'
+"Fugitive - Gitwrapper for vim
+Plugin 'tpope/vim-fugitive'
+"Surround - surrounding plugin for vim
+Plugin 'tpope/vim-surround'
+"Airline - Statusbar
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"Supertab - insert completion
+Plugin 'ervandew/supertab'
+"Nedcommenter - commenting plugin
+Plugin 'scrooloose/nerdcommenter'
+"Vimtex - latex plugin for vim
+Plugin 'lervag/vimtex'
+"Vimmarkdown - markdown plugin for vim
+Plugin 'plasticboy/vim-markdown'
+"Tabular - alignment plugin for vim
+Plugin 'godlygeek/tabular'
+"Vimrepeat - reapeat mode for plugins
+Plugin 'tpope/vim-repeat'
+"Easymotion - move fast to words plugin
+Plugin 'easymotion/vim-easymotion'
+"AutoComplPop - Addon for supertab
+Plugin 'AutoComplPop'
+"Indentpython - indentation plugin for python
+Plugin 'vim-scripts/indentpython.vim'
+"Indentpython - indentation plugin for python
+Plugin 'jistr/vim-nerdtree-tabs'
+"SimpylFold - folding plugin
+Plugin 'tmhedberg/SimpylFold'
+"Flake8 - python syntax checker
+Plugin 'nvie/vim-flake8'
+"Jedivim - Python autocompletion plugin
+Plugin 'davidhalter/jedi-vim'
+
+"COLOR SCHEMES
+Plugin 'jnurmine/Zenburn'
+
+call vundle#end()
+"VUNDLE END
+
+"SIMPLY FOLD
+let g:SimpylFold_docstring_preview=1
 
 "AUTO-COMPLETE"
 autocmd Filetype plaintex,tex,latex,markdown,md,mdown set dictionary+=/usr/share/dict/words
@@ -119,45 +138,11 @@ set complete+=k
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-"MACROS"
-:nnoremap <Space> @q
-let @q=']s'
-let @z='1z='
-
-nnoremap <Leader>i :call EasyInclude()<cr>
-
-function! EasyInclude()
-    "let curline = getline('.')
-    normal! mm
-    call inputsave()
-    let name = input('include: ')
-    normal! gg}
-    call setline('.', name)
-    call inputrestore()
-    normal! i#include <
-    normal! $a.h>
-    normal! o
-    normal! `m
-endfunction
-
-iabbr fori for (i = 0; i < 10; i++) {<cr>}<C-R>=Eatchar()<cr>
-iabbr forj for (j = 0; j < 10; j++) {<cr>}<C-R>=Eatchar()<cr>
-iabbr for2 for (i = 0; i < 10; i++) {<cr>for (j = 0; j < 10; j++) {<cr>}<cr>}<esc>kko
-iabbr #d #define
-iabbr #i #include <><left><C-R>=Eatchar()<cr>
-iabbr prf printf("\n");<esc>4hi<C-R>=Eatchar()<cr>
-
 "SUPERTAB"
 let g:SuperTabDefaultCompletionType = "context"
 
 "VIMTEX"
 let g:vimtex_disable_version_warning = 1
-
-"VIMWIKI"
-let g:vimwiki_list = [{'path' : '/home/vegarbov/Dropbox/VimWiki',
-\ 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-let g:vimwiki_global_ext = 0
 
 "VIM-MARKDOWN"
 let g:vim_markdown_folding_disabled = 1
@@ -172,12 +157,6 @@ let g:ctrlp_working_path_mode = 'c'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
-"FILE SPESIFIC"
-let java_highlight_all=1
-let java_highlight_functions="style"
-let java_allow_cpp_keywords=1
-filetype plugin indent on
 
 "SYNTASTIC"
 set statusline+=%#warningmsg#
