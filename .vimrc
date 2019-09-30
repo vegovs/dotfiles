@@ -35,6 +35,13 @@ set termguicolors
 syntax enable
 filetype off
 filetype plugin on
+
+"This fixes highlighting of bad words
+augroup my_colours
+  autocmd!
+  autocmd ColorScheme solarized hi SpellBad cterm=reverse
+augroup END
+
 colorscheme solarized
 set bg=dark 
 
@@ -63,6 +70,10 @@ filetype plugin indent on
 
 "LEADER KEY"
 let mapleader = ","
+"
+"SPELL CHECKING
+nmap <silent> <leader>s :set spell!<CR>
+set spelllang=nb,en
 
 "BUFFER NAV"
 :nmap <F1> :bp<CR>
@@ -172,10 +183,6 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-
-"SPELL CHECKING"
-nmap <silent> <leader>s :set spell!<CR>
-set spelllang=nb,en
 
 "NERD TREE"
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree

@@ -126,3 +126,5 @@ export PATH=$HOME/gems/bin:$PATH
 alias python=python3.7
 alias pip='python3.7 -m pip'
 source /opt/ros/melodic/setup.bash
+
+export TERM=xterm-256color

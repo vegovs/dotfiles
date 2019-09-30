@@ -16,6 +16,7 @@ echo "Creating symlinks.."
 #==============
 ln -sf $dotfiles_dir/.vimrc ~/ &>/dev/null
 ln -sf $dotfiles_dir/.bashrc ~/ &>/dev/null
+ln -sf $dotfiles_dir/.bash_profile ~/ &>/dev/null
 ln -sf $dotfiles_dir/.gitconfig ~/ &>/dev/null
 ln -sf $dotfiles_dir/.tmux.conf ~/ &>/dev/null
 ln -sf $dotfiles_dir/.gitignore_global ~/ &>/dev/null
