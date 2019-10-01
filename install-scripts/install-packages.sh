@@ -30,11 +30,11 @@ log_file=~/install_progress_log.txt
 #==============
 echo "Installing packages.."
 
-sudo apt -y install vim 
+sudo apt -y install vim
 if type -p vim > /dev/null; then
-    echo "Vim Installed" >> $log_file
+    echo "vim Installed" >> $log_file
 else
-    echo "Error: Vim failed to install" >> $log_file
+    echo "vim FAILED TO INSTALL!!!" >> $log_file
 fi
 
 echo 'Install/Updating vim-plugins, this might take a while..'
@@ -44,7 +44,7 @@ if [ -d $vundlepath ]; then
 	echo "Vundle Installed." >> $log_file
 	vim +PluginUpdate +qall &>/dev/null
 else
-	echo "Vundle Installed." >> $log_file
+	echo "Installing Vundle." >> $log_file
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim &>/dev/null 
 	vim +PluginInstall +qall &>/dev/null
 fi
@@ -113,7 +113,7 @@ else
 fi
 
 sudo apt -y install dconf-tools
-if type -p dconf-tools > /dev/null; then
+if type -p dconf > /dev/null; then
     echo "dconf-tools Installed" >> $log_file
 	sudo dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:caps:swapescape']"
 else
