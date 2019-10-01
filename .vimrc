@@ -55,10 +55,16 @@ au BufNewFile, BufRead *.py
     \ set autoindent
     \ set fileformat=unix
 
-au BufNewFile,BufRead *.js, *.html, *.css
+au BufNewFile, BufRead *.js, *.html, *.css
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
+
+au BufNewFile, BufRead *.cpp
+    \ set shiftwidth=2
+    \ set tabstop=2
+    \ set expandtab
+    \ set cindent
 
 "FILE SPESIFIC"
 let python_highlight_all=1
