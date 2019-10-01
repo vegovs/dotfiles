@@ -14,10 +14,20 @@ HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+# Store multi-line commands in one history entry:
+shopt -s cmdhist
+
+# Use $PROMPT_COMMAND variable to save each command right after it has been executed.
+export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
+
+HISTTIMEFORMAT="%h %d %H:%M:%S "
+
+# Don’t save ls, ps and history commands:
+HISTIGNORE="ls:ps:history"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -128,10 +138,3 @@ alias pip='python3.7 -m pip'
 source /opt/ros/melodic/setup.bash
 
 export TERM=xterm-256color
-
-# Append history and do not empty on exit
-export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-shopt -s histappend
-# Increase history size
-HISTSIZE=10000
-HISTFILESIZE=10000
