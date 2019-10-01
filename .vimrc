@@ -144,6 +144,9 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'nvie/vim-flake8'
 "Jedivim - Python autocompletion plugin
 Plugin 'davidhalter/jedi-vim'
+"vim.cpp - additional vim c++ syntax highlighting
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
 
 "COLOR SCHEMES
 Plugin 'jnurmine/Zenburn'
@@ -156,33 +159,33 @@ call vundle#end()
 "SIMPLY FOLD
 let g:SimpylFold_docstring_preview=1
 
-"AUTO-COMPLETE"
+"AUTO-COMPLETE
 autocmd Filetype plaintex,tex,latex,markdown,md,mdown set dictionary+=/usr/share/dict/words
 set complete+=k
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-"SUPERTAB"
+"SUPERTAB
 let g:SuperTabDefaultCompletionType = "context"
 
-"VIMTEX"
+"VIMTEX
 let g:vimtex_disable_version_warning = 1
 
-"VIM-MARKDOWN"
+"VIM-MARKDOWN
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_toml_frontmatter = 1
 set conceallevel=2
 
-"CTRLP"
+"CTRLP
 let g:ctrlp_working_path_mode = 'c'
 
-"AIRLINE"
+"AIRLINE
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
-"SYNTASTIC"
+"SYNTASTIC
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -192,12 +195,17 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-"NERD TREE"
+"NERD TREE
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
-"NERDCOMMENTER"
+"NERDCOMMENTER
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCompactSexyComs = 1
 let g:NERDAltDelims_java = 1
 let g:NERDTrimTrailingWhitespace = 1
+
+"CPP
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
