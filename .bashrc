@@ -91,7 +91,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias sshuio='ssh -YC vegarbov@login.ifi.uio.no'
+alias uio='ssh -YC vegarbov@login.ifi.uio.no'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -128,3 +128,10 @@ alias pip='python3.7 -m pip'
 source /opt/ros/melodic/setup.bash
 
 export TERM=xterm-256color
+
+# Append history and do not empty on exit
+export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+shopt -s histappend
+# Increase history size
+HISTSIZE=10000
+HISTFILESIZE=10000
