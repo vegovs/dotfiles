@@ -65,14 +65,16 @@ au BufNewFile, BufRead *.cpp
     \ set tabstop=2
     \ set expandtab
     \ set cindent
+    \ set autoindent
 
 "FILE SPESIFIC"
+filetype plugin indent on
 let python_highlight_all=1
 let java_highlight_all=1
 let java_highlight_functions="style"
 let java_allow_cpp_keywords=1
 autocmd Filetype vhdl set expandtab|set shiftwidth=2|set tabstop=2
-filetype plugin indent on
+autocmd FileType cpp setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 cindent autoindent
 
 "LEADER KEY"
 let mapleader = ","
