@@ -133,8 +133,11 @@ export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems/bin:$PATH
 
 # Python div
-alias python=python3.7
-alias pip='python3.7 -m pip'
+alias python=python3.6
+alias py=python3.6
 source /opt/ros/melodic/setup.bash
 
 export TERM=xterm-256color
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
