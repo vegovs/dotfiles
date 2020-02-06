@@ -98,10 +98,22 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
-alias uio='ssh -YC vegarbov@login.ifi.uio.no'
+
+alias ssh_uio='ssh -YC vegarbov@login.ifi.uio.no'
+alias ssh_michael='ssh vegovs@192.168.1.6'
+
+#Pind pid
+alias pf="ps -e | grep $1"
+
+#Find file
+alias ff="find -type f -iname $1"
+#Find directory
+alias fd="find -type d -iname $2"
+#Find file containing word
+alias ffcw="grep -nrH $1"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -133,11 +145,26 @@ export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems/bin:$PATH
 
 # Python div
-alias python=python3.6
-alias py=python3.6
-source /opt/ros/melodic/setup.bash
+alias python=python3.7
+alias py=python3.7
 
 export TERM=xterm-256color
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/vegovs/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/vegovs/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/vegovs/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/vegovs/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
