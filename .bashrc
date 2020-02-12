@@ -100,7 +100,7 @@ fi
 # some more ls aliases
 alias ll='ls -alhF'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -lhF'
 
 alias ssh_uio='ssh -YC vegarbov@login.ifi.uio.no'
 alias ssh_michael='ssh vegovs@192.168.1.6'
