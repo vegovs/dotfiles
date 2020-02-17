@@ -10,6 +10,7 @@ set ruler
 set backspace=indent,eol,start
 set nocompatible
 set autoindent
+set noexpandtab
 set nostartofline
 set smartindent
 set tabstop=4
@@ -42,7 +43,7 @@ augroup my_colours
   autocmd ColorScheme solarized hi SpellBad cterm=reverse
 augroup END
 
-colorscheme solarized
+"colorscheme solarized
 set bg=dark 
 
 "INDENTATIONS
@@ -194,6 +195,7 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_c_include_dirs = [ '../include', 'include', '../inc', 'inc' ]
 
 "NERD TREE
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree

@@ -108,10 +108,11 @@ alias ssh_michael='ssh vegovs@192.168.1.6'
 #Pind pid
 alias pf="ps -e | grep $1"
 
-#Find file
-alias ff="find -type f -iname $1"
-#Find directory
-alias fd="find -type d -iname $2"
+mcd () {
+    mkdir -p $1
+    cd $1
+}
+
 #Find file containing word
 alias ffcw="grep -nrH $1"
 
