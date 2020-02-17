@@ -104,6 +104,7 @@ alias l='ls -lhF'
 
 alias ssh_uio='ssh -YC vegarbov@login.ifi.uio.no'
 alias ssh_michael='ssh vegovs@192.168.1.6'
+alias ssh_yggdrasil='ssh admin@192.168.1.10'
 
 #Pind pid
 alias pf="ps -e | grep $1"

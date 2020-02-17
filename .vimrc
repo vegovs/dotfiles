@@ -146,6 +146,8 @@ Plugin 'nvie/vim-flake8'
 Plugin 'davidhalter/jedi-vim'
 "vim.cpp - additional vim c++ syntax highlighting
 Plugin 'octol/vim-cpp-enhanced-highlight'
+"VIM-AUTOFORMAT - code reformatter
+Plugin 'chiel92/vim-autoformat'
 
 
 "COLOR SCHEMES
@@ -209,3 +211,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
+
+"VIM-AUTOFORMAT - code reformatter
+let g:python3_host_prog="/usr/bin/python3.7"
+noremap <F3> :Autoformat<CR>
