@@ -102,10 +102,6 @@ alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -lhF'
 
-alias ssh_uio='ssh -YC vegarbov@login.ifi.uio.no'
-alias ssh_michael='ssh vegovs@192.168.1.6'
-alias ssh_yggdrasil='ssh admin@192.168.1.10'
-
 #Pind pid
 alias pf="ps -e | grep $1"
 
@@ -145,6 +141,7 @@ if ! shopt -oq posix; then
 fi
 
 set -o vi
+
 # Install Ruby Gems to ~/gems
 export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems/bin:$PATH
@@ -172,4 +169,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
