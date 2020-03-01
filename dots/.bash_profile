@@ -2,6 +2,10 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -14,20 +18,10 @@ HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
-# Store multi-line commands in one history entry:
-shopt -s cmdhist
-
-# Use $PROMPT_COMMAND variable to save each command right after it has been executed.
-export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=20000
-
-HISTTIMEFORMAT="%h %d %H:%M:%S "
-
-# Don’t save ls, ps and history commands:
-HISTIGNORE="ls:ps:history"
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -97,25 +91,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alhF'
-alias la='ls -A'
-alias l='ls -lhF'
-
-#Pind pid
-alias pf="ps -e | grep $1"
-
-mcd () {
-    mkdir -p $1
-    cd $1
-}
-
-#Find file containing word
-alias ffcw="grep -nrH $1"
-
-# Download silent
-alias ds="wget -bqc $1"
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -141,31 +116,8 @@ if ! shopt -oq posix; then
 fi
 
 set -o vi
-
 # Install Ruby Gems to ~/gems
 export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems/bin:$PATH
 
-# Python div
-alias python=python3.7
-alias py=python3.7
-
 export TERM=xterm-256color
-# Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/vegovs/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/vegovs/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/vegovs/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/vegovs/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
