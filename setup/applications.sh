@@ -56,7 +56,7 @@ if [ -d $CONDAPATH ]; then
     fancy_echo "Anaconda installed."
 else
     wget https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh -O /tmp/anaconda.sh
-    bash /tmp/anaconda.sh -b -p $CONDAPATH
+    bash /tmp/anaconda.sh -p $CONDAPATH
 fi
 
 fancy_echo "Change wallpaper(Gnome desktop)?"
