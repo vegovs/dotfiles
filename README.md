@@ -1,5 +1,4 @@
-# Dotfile
-# eand applications
+# Dotfiles and applications
 
 Config files for:
 * Git
