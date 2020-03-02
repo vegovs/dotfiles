@@ -223,8 +223,6 @@ call vundle#begin()
 "PLUGINS
 "Vundle - Plugin manager
 Plugin 'gmarik/Vundle.vim'
-"Syntastic - Syntax checking plugin
-Plugin 'scrooloose/syntastic'
 "Nerdtree - File navigation plugin
 Plugin 'scrooloose/nerdtree'
 "CtrlP - Full path fuzzy file, buffer, mru, tag, ... finder for Vim
@@ -305,17 +303,6 @@ let g:ctrlp_working_path_mode = 'c'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
-"SYNTASTIC
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_c_include_dirs = [ '../include', 'include', '../inc', 'inc' ]
 
 "NERD TREE
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
