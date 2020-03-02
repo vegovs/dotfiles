@@ -10,6 +10,7 @@ if ! command -v git >/dev/null; then
 fi
 
 fancy_echo "Updating system."
+sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update && sudo apt upgrade -y
 
 fancy_echo "Installing CLI tools"
