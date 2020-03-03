@@ -93,7 +93,6 @@ set textwidth=100
 " set formatoptions=cq
 set formatoptions=qrn1
 set wrapmargin=0
-set colorcolumn=+1
 
 " Navigate properly when lines are wrapped
 nnoremap j gj
@@ -223,8 +222,6 @@ call vundle#begin()
 "PLUGINS
 "Vundle - Plugin manager
 Plugin 'gmarik/Vundle.vim'
-"Syntastic - Syntax checking plugin
-Plugin 'scrooloose/syntastic'
 "Nerdtree - File navigation plugin
 Plugin 'scrooloose/nerdtree'
 "CtrlP - Full path fuzzy file, buffer, mru, tag, ... finder for Vim
@@ -258,8 +255,6 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'jistr/vim-nerdtree-tabs'
 "SimpylFold - folding plugin
 Plugin 'tmhedberg/SimpylFold'
-"Flake8 - python syntax checker
-Plugin 'nvie/vim-flake8'
 "Jedivim - Python autocompletion plugin
 Plugin 'davidhalter/jedi-vim'
 "vim.cpp - additional vim c++ syntax highlighting
@@ -268,6 +263,10 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'chiel92/vim-autoformat'
 "vimwiki - Personal wikipedia
 Plugin 'vimwiki/vimwiki'
+"Asynchronous Lint Engine
+Plugin 'dense-analysis/ale'
+"Syntastic - Syntax checking hacks for vim
+
 
 "COLOR SCHEMES
 Plugin 'jnurmine/Zenburn'
@@ -279,6 +278,9 @@ call vundle#end()
 
 "SIMPLY FOLD
 let g:SimpylFold_docstring_preview=1
+hi Folded guifg=Black
+hi Folded guibg=white
+
 
 "AUTO-COMPLETE
 autocmd Filetype plaintex,tex,latex,markdown,md,mdown set dictionary+=/usr/share/dict/words
@@ -305,17 +307,6 @@ let g:ctrlp_working_path_mode = 'c'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
-"SYNTASTIC
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_c_include_dirs = [ '../include', 'include', '../inc', 'inc' ]
 
 "NERD TREE
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -348,3 +339,13 @@ let wiki_1.diary_rel_path = '_posts'
 let g:vimwiki_list = [wiki_1]
 let g:vimwiki_dir_link = 'index'
 let g:vimwiki_use_calendar = 1
+
+" " Ale
+nmap <silent> <C-e> <Plug>(ale_next_wrap)
+
+let g:airline#extensions#tabline#enabled = 1
+let g:ale_lint_on_enter = 0
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+hi ALEWarning cterm=underline,bold
