@@ -7,8 +7,6 @@ fancy_echo() {
   printf "\n$fmt\n" "$@"
 }
 
-sudo apt install xclip
-
 fancy_echo "Setting up Github SSH key pairs."
 echo "Please enter your github email."
 read github_email
