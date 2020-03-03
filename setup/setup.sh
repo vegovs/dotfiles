@@ -1,4 +1,5 @@
 #!/bin/sh
+
 source ~/dotfiles/setup/functions.sh
 
 DIR="$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd ))"
@@ -50,7 +51,6 @@ func_read_gitinfo() {
     echo "  email = $git_email" >> $DIR/gitconfig.local
     echo "[github]" >> $DIR/gitconfig.local
     echo "  user = $github_username" >> $DIR/gitconfig.local
-    func_install
 }
 
 echo $DIR
