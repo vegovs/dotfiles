@@ -22,6 +22,23 @@ func_install() {
 
     fancy_echo "Done linking dotfiles and fix configs."
 
+    fancy_echo "Swap caps:escape?"
+    select yn in Yes No
+    do
+        case $yn in
+            Yes)
+                xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+                xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+                xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock" >> ~/.bash_profile
+                xmodmap -e "keycode 66 = Escape NoSymbol Escape" >> ~/.bash_profile
+                break;
+                ;;
+            No)
+                break;
+                ;;
+        esac
+    done
+
     fancy_echo "Install applications?(Need sudo)?"
     select yn in Yes No
     do
@@ -56,10 +73,10 @@ func_read_gitinfo() {
 echo $DIR
 
 echo "[User]
-    $(git config --global user.name)
-    $(git config --global user.email)
+$(git config --global user.name)
+$(git config --global user.email)
 [github]
-    $(git config --global github.user)"
+$(git config --global github.user)"
 fancy_echo "Change git information?"
 select yn in Yes No
 do
