@@ -71,5 +71,8 @@ do
             gsettings set org.gnome.desktop.screensaver picture-uri file:///usr/share/backgrounds/mojave-night.jpg
             break;
             ;;
+        No)
+            break;
+            ;;
     esac
 done

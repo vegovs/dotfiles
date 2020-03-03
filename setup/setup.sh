@@ -27,8 +27,10 @@ func_install() {
         case $yn in
             Yes)
                 source $DIR/setup/applications.sh
+                break;
                 ;;
             No)
+                break;
                 ;;
         esac
     done
