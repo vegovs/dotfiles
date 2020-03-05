@@ -131,6 +131,12 @@ nnoremap <silent> <Down> :resize -5<cr>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
+" For local replace
+nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
+
+" For global replace
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+
 " Always use vertical diffs
 set diffopt+=vertical
 
@@ -327,7 +333,7 @@ let g:cpp_class_decl_highlight = 1
 let g:python3_host_prog="/usr/bin/python3.7"
 nnoremap <F3> :Autoformat<CR>
 
-"vimwiki - Personal wikipedia
+"VIMWIKI
 let wiki_1 = {}
 let wiki_1.path = '~/vimwiki'
 let wiki_1.ext = '.md'
@@ -340,12 +346,20 @@ let g:vimwiki_list = [wiki_1]
 let g:vimwiki_dir_link = 'index'
 let g:vimwiki_use_calendar = 1
 
-" " Ale
+"ALE
 nmap <silent> <C-e> <Plug>(ale_next_wrap)
 
 let g:airline#extensions#tabline#enabled = 1
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_change = 1
+let g:ale_lint_on_enter = 1
 let g:ale_fix_on_save = 1
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '.'
+let g:ale_sign_error = '💣'
+let g:ale_sign_warning = '🚩'
+let g:ale_statusline_format = ['💣 %d', '🚩 %d', '']
+
+let b:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
+let b:ale_fixers = ['prettier', 'eslint', 'autopep8', 'black', 'isort', 'add_blank_lines_for_python_control_statements','remove_trailing_lines', 'reorder-python-imports', 'trim_whitespace', 'yapf']
+let g:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
+let g:ale_fixers = ['prettier', 'eslint', 'autopep8', 'black', 'isort']
+
 hi ALEWarning cterm=underline,bold
