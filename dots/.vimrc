@@ -140,12 +140,6 @@ nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 " Always use vertical diffs
 set diffopt+=vertical
 
-"Use enter to create new lines w/o entering insert mode
-nnoremap <CR> o<Esc>
-"Below is to fix issues with the ABOVE mappings in quickfix window
-autocmd CmdwinEnter * nnoremap <CR> <CR>
-autocmd BufReadPost quickfix nnoremap <CR> <CR>
-
 " Trigger autoread when changing buffers or coming back to vim in terminal.
 au FocusGained,BufEnter * :silent! !
 
