@@ -328,6 +328,8 @@ let g:python3_host_prog="/usr/bin/python3.7"
 nnoremap <F3> :Autoformat<CR>
 
 "VIMWIKI
+let g:vimwiki_ext2syntax = {}
+let g:vimwiki_global_ext = 0
 let wiki_1 = {}
 let wiki_1.path = '~/vimwiki'
 let wiki_1.ext = '.md'
@@ -352,8 +354,8 @@ let g:ale_sign_warning = '🚩'
 let g:ale_statusline_format = ['💣 %d', '🚩 %d', '']
 
 let b:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
-let b:ale_fixers = ['prettier', 'eslint', 'autopep8', 'black', 'isort', 'add_blank_lines_for_python_control_statements','remove_trailing_lines', 'reorder-python-imports', 'trim_whitespace', 'yapf']
+let b:ale_fixers = {'python': ['prettier', 'eslint', 'autopep8', 'black', 'isort', 'add_blank_lines_for_python_control_statements','remove_trailing_lines', 'reorder-python-imports', 'trim_whitespace', 'yapf']}
 let g:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
-let g:ale_fixers = ['prettier', 'eslint', 'autopep8', 'black', 'isort']
+let g:ale_fixers = {'python': ['prettier', 'eslint', 'autopep8', 'black', 'isort', 'add_blank_lines_for_python_control_statements','remove_trailing_lines', 'reorder-python-imports', 'trim_whitespace', 'yapf']}
 
 hi ALEWarning cterm=underline,bold
