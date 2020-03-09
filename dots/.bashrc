@@ -181,6 +181,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Make scripts under bin discoverable
+export PATH="$HOME/bin:$PATH"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/vegovs/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
