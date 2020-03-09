@@ -158,6 +158,7 @@ set bg=dark
 
 " Enable spellchecking for Markdown
 autocmd FileType markdown setlocal spell
+let g:markdown_folding = 1
 
 " Automatically wrap at 100 characters for Markdown
 autocmd BufRead,BufNewFile *.md setlocal textwidth=100
@@ -265,7 +266,9 @@ Plugin 'chiel92/vim-autoformat'
 Plugin 'vimwiki/vimwiki'
 "Asynchronous Lint Engine
 Plugin 'dense-analysis/ale'
-"Syntastic - Syntax checking hacks for vim
+" md-img-paste.vim
+Plugin 'ferrine/md-img-paste.vim'
+
 
 
 "COLOR SCHEMES
@@ -359,3 +362,6 @@ let g:ale_linters = {'python': ['mypy', 'flake8', 'pylint']}
 let g:ale_fixers = {'python': ['prettier', 'eslint', 'autopep8', 'black', 'isort', 'add_blank_lines_for_python_control_statements','remove_trailing_lines', 'reorder-python-imports', 'trim_whitespace', 'yapf']}
 
 hi ALEWarning cterm=underline,bold
+
+autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+let g:mdip_imgdir = '../images'
