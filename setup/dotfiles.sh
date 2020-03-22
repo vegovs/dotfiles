@@ -1,13 +1,18 @@
-#!/bin/sh
-source ~/dotfiles/setup/functions.sh
+#!/bin/bash
+
+DIR="$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd ))"
+source $DIR/setup/functions.sh
 
 dotfiles=(
 .bash_aliases
+.bash_profile
 .bashrc
 .gitignore_global
 .gitconfig
 .tmux.conf
 .vimrc
+.doom.d
+.editorconfig
 )
 
 fancy_echo "Backup current config"
@@ -19,5 +24,5 @@ done
 
 fancy_echo "Symlinking dotfiles"
 for i in ${dotfiles[@]} ; do
-    ln -s ~/dotfiles/dots/$i ~/$i
+    ln -s $DIR/dots/$i ~/$i
 done

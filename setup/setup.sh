@@ -1,8 +1,7 @@
 #!/bin/sh
 
-source ~/dotfiles/setup/functions.sh
-
 DIR="$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd ))"
+source $DIR/setup/functions.sh
 
 func_install() {
     fancy_echo "Link dotfiles and fix configs?"
@@ -12,6 +11,21 @@ func_install() {
             Yes)
                 source $DIR/setup/dotfiles.sh
                 source $DIR/setup/other.sh
+                break;
+                ;;
+            No)
+                break;
+                ;;
+        esac
+    done
+
+    fancy_echo "Install Emacs Doom?"
+    select yn in Yes No
+    do
+        case $yn in
+            Yes)
+                git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
+                ~/.emacs.d/bin/doom install
                 break;
                 ;;
             No)

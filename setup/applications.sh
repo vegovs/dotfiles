@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/sh
 
 DIR="$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd ))"
 source $DIR/setup/functions.sh
@@ -10,6 +9,7 @@ if ! command -v git >/dev/null; then
 fi
 
 fancy_echo "Updating system."
+sudo add-apt-repository ppa:kelleyk/emacs
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update && sudo apt upgrade -y
 
@@ -33,6 +33,9 @@ sudo apt install python3.7 -y
 fancy_echo "Installing vim"
 sudo apt install vim -y
 sudo apt install vim-gui-common -y
+
+fancy_echo "Installing emacs 26"
+sudo apt install emacs26
 
 fancy_echo "Setting up tmux"
 sudo apt install tmux -y
