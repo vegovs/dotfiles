@@ -7,7 +7,8 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Vegard Bergsvik Øvstegård"
-      user-mail-address "vegovs@gmail.com")
+      user-mail-address "vegovs@gmail.com"
+      user-login-name "vegovs"
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -19,7 +20,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "monospace" :size 20))
+
+ doom-font (font-spec :family "monospace" :size 20))
 
 ;; Setting the neotree width to be adjustable.
 (setq neo-window-fixed-size nil)
@@ -87,8 +89,9 @@
 (setq company-idle-delay 0.2
       company-minimum-prefix-length 3)
 
-;; (add-hook 'c++-mode-hook 'irony-mode)
-;; (add-hook 'c-mode-hook 'irony-mode)
-;; (add-hook 'objc-mode-hook 'irony-mode)
+;; Cuda-mode sucks
+(add-to-list 'auto-mode-alist '("\.cu$" . c-mode))
 
-;; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+;; Fix tramp gzip issue
+(setq tramp-copy-size-limit 1000000
+      tramp-inline-compress-start-size 1000000)
