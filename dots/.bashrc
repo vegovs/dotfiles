@@ -183,6 +183,7 @@ fi
 
 # Make scripts under bin discoverable
 export PATH="$HOME/bin:$PATH"
+export PATH="/home/vegovs/.local/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -198,3 +199,9 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"

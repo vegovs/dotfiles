@@ -266,8 +266,10 @@ Plugin 'chiel92/vim-autoformat'
 Plugin 'vimwiki/vimwiki'
 "Asynchronous Lint Engine
 Plugin 'dense-analysis/ale'
-" md-img-paste.vim
+"md-img-paste.vim
 Plugin 'ferrine/md-img-paste.vim'
+"Multi-Language Thesaurus Query
+Plugin 'ron89/thesaurus_query.vim'
 
 
 
@@ -278,6 +280,9 @@ Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 "VUNDLE END
+
+"Multi-Language Thesaurus Query
+nnoremap <Leader>os :ThesaurusQueryReplaceCurrentWord<CR>
 
 "SIMPLY FOLD
 let g:SimpylFold_docstring_preview=1
@@ -296,6 +301,7 @@ let g:SuperTabDefaultCompletionType = "context"
 
 "VIMTEX
 let g:vimtex_disable_version_warning = 1
+let g:tex_flavor="latex"
 
 "VIM-MARKDOWN
 let g:vim_markdown_folding_disabled = 1
