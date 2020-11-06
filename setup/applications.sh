@@ -9,7 +9,6 @@ if ! command -v git >/dev/null; then
 fi
 
 fancy_echo "Updating system."
-sudo add-apt-repository ppa:kelleyk/emacs
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update && sudo apt upgrade -y
 
@@ -28,14 +27,13 @@ sudo apt install fonts-powerline -y
 
 fancy_echo "Installing python"
 sudo apt install python -y
-sudo apt install python3.7 -y
+sudo apt install python3.8 -y
+sudo apt install python3-pip -y
+sudo pip3 install -U Commitizen
 
 fancy_echo "Installing vim"
 sudo apt install vim -y
 sudo apt install vim-gui-common -y
-
-fancy_echo "Installing emacs 26"
-sudo apt install emacs26
 
 fancy_echo "Setting up tmux"
 sudo apt install tmux -y
@@ -44,7 +42,7 @@ sudo apt install tree -y
 fancy_echo "Installing Misc Apps"
 sudo apt install google-chrome-stable -y
 sudo apt install libreoffice -y
-sudo apt install dconf-tools -y
+sudo apt install gnome-tweaks -y
 
 fancy_echo "Installing Jekyll"
 sudo apt install ruby-full build-essential zlib1g-dev -y

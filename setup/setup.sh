@@ -18,40 +18,7 @@ func_install() {
                 ;;
         esac
     done
-
-    fancy_echo "Install Emacs Doom?"
-    select yn in Yes No
-    do
-        case $yn in
-            Yes)
-                git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
-                ~/.emacs.d/bin/doom install
-                break;
-                ;;
-            No)
-                break;
-                ;;
-        esac
-    done
-
     fancy_echo "Done linking dotfiles and fix configs."
-
-    fancy_echo "Swap caps:escape?"
-    select yn in Yes No
-    do
-        case $yn in
-            Yes)
-                xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
-                xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-                echo -e "xmodmap -e \"keycode 9 = Caps_Lock NoSymbol Caps_Lock\"" >> ~/.bash_profile
-                echo -e "xmodmap -e \"keycode 66 = Escape NoSymbol Escape\"" >> ~/.bash_profile
-                break;
-                ;;
-            No)
-                break;
-                ;;
-        esac
-    done
 
     fancy_echo "Install applications?(Need sudo)?"
     select yn in Yes No
