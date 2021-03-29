@@ -268,8 +268,6 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'dense-analysis/ale'
 "md-img-paste.vim
 Plugin 'ferrine/md-img-paste.vim'
-"Multi-Language Thesaurus Query
-Plugin 'ron89/thesaurus_query.vim'
 
 
 
@@ -281,8 +279,6 @@ Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
 "VUNDLE END
 
-"Multi-Language Thesaurus Query
-nnoremap <Leader>os :ThesaurusQueryReplaceCurrentWord<CR>
 
 "SIMPLY FOLD
 let g:SimpylFold_docstring_preview=1
