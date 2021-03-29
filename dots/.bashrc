@@ -166,6 +166,10 @@ export SCM_GIT_SHOW_COMMIT_COUNT=true
 
 export THEME_SHOW_PYTHON=true
 
+# Barbuk theme
+export BARBUK_HOST_INFO=short
+export BARBUK_SSH_INFO=false
+
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 
