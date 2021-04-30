@@ -37,12 +37,12 @@ func_install() {
 }
 
 func_read_gitinfo() {
-    echo "Enter your git name."
-    read git_name
-    echo "Enter your Github email."
-    read git_email
     echo "Enter your Github username."
     read github_username
+    echo "Enter your Github email."
+    read git_email
+    echo "Enter your GitHub name."
+    read git_name
     touch $DIR/gitconfig.local
     echo "[user]" >> $DIR/gitconfig.local
     echo "  name = $git_name" >> $DIR/gitconfig.local
@@ -58,7 +58,7 @@ $(git config --global user.name)
 $(git config --global user.email)
 [github]
 $(git config --global github.user)"
-fancy_echo "Change git information?"
+fancy_echo "Do you wish to change the current GitHub information?"
 select yn in Yes No
 do
     case $yn in
