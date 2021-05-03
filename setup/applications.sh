@@ -29,6 +29,7 @@ sudo apt install vim-gui-common -y
 sudo apt install gnome-tweaks -y
 sudo apt install google-chrome-stable -y
 sudo apt install unzip -y
+sudo apt install neofetch -y
 
 fancy_echo "Install GitHub CLI?"
 select yn in Yes No
